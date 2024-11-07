@@ -1,9 +1,8 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace PINView.Maui.Converters
 {
-    public class SizeToCornerRadiusConverter : IValueConverter
+  public class SizeToCornerRadiusConverter : IValueConverter
     {
         /// <inheritdoc/>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

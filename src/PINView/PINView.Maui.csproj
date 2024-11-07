@@ -1,17 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
-		<UseMaui>true</UseMaui>
+		<TargetFrameworks>net8.0-android</TargetFrameworks>		
 		<SingleProject>true</SingleProject>
+    <UseMaui>true</UseMaui>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
 		<ImplicitUsings>enable</ImplicitUsings>
-
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <LangVersion>latest</LangVersion>
+        
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>		
 		<PackageId>PINView.MAUI</PackageId>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<SignAssembly>False</SignAssembly>
@@ -25,7 +21,7 @@
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>   
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -40,17 +36,19 @@
 	<ItemGroup>
 		<Folder Include="Converters\" />
 		<Folder Include="Platforms\Android\" />
-		<Folder Include="Platforms\MacCatalyst\" />
-		<Folder Include="Platforms\Windows\" />
 		<Folder Include="Platforms\Android\Handlers\" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="..\..\arts\Package-Icon.png" Pack="true" PackagePath="\"/>
-		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\arts\Package-Icon.png" Pack="true" PackagePath="\" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="BoxTemplate.cs">
 			<DependentUpon>%(Filename)</DependentUpon>
 		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.93" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.93" />
 	</ItemGroup>
 </Project>

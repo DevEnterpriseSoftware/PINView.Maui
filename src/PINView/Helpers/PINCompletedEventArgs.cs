@@ -1,12 +1,7 @@
 ﻿namespace PINView.Maui.Helpers
 {
-    public class PINCompletedEventArgs : EventArgs
+    public class PINCompletedEventArgs(string pin) : EventArgs
     {
-        public string PIN { get; set; }
-
-        public PINCompletedEventArgs(string pin)
-        {
-            this.PIN = pin;
-        }
-    }
+    public string PIN { get; set; } = pin;
+  }
 }

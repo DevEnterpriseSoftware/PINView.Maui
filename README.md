@@ -20,10 +20,7 @@ If you are happy using this control and feeling generous, consider buying me a C
 https://www.nuget.org/packages/PINView.Maui/
 
 ### Platforms Supported
-- [X] iOS
-- [X] MacCatalyst
 - [X] Android
-- [X] Windows
 
 
 ## Steps

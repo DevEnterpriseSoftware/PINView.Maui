@@ -16,8 +16,6 @@
                 <Entry.FontSize>
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="Android" Value="18" />
-                        <On Platform="iOS" Value="22" />
-                        <On Platform="WinUI" Value="18" />
                     </OnPlatform>
                 </Entry.FontSize>
             </Entry>
